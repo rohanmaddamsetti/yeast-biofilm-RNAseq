@@ -1091,7 +1091,7 @@ ggsave("../results/figures/FigS3.pdf",FigS3, height=8)
 ## dig a bit deeper into Dfg16, Tos1, and FLO11.
 
 ## Are Dfg16 and Tos1 significant in these data?
-"YOR030W" %in% intersection.genes ## NO for Dfg16!
+"YOR030W" %in% E.G.GxE.intersection ## YES for Dfg16!
 "YOR030W" %in% G.genes ## YES for Dfg16
 "YOR030W" %in% E.genes ## YES for Dfg16.
 "YOR030W" %in% GxE.genes ## YES for Dfg16.
@@ -1103,7 +1103,7 @@ filter(annotated.GxE.test.results,gene== "YOR030W")
 ## HMY362 in LD conditions!
 filter(HMY12.kallisto.df,target_id=='YOR030W_mRNA')
 
-"YBR162C" %in% intersection.genes ## Yes for Tos1.
+"YBR162C" %in% E.G.GxE.intersection ## Yes for Tos1.
 "YBR162C" %in% G.genes ## Yes for Tos1
 "YBR162C" %in% E.genes ## Yes for Tos1
 "YBR162C" %in% GxE.genes ## Yes for Tos1
@@ -1115,7 +1115,7 @@ filter(annotated.GxE.test.results,gene== "YBR162C")
 filter(HMY12.kallisto.df,target_id=='YBR162C_mRNA')
 
 ## Check Flo11.
-"YIR019C" %in% intersection.genes ## Yes for Flo11
+"YIR019C" %in% E.G.GxE.intersection ## Yes for Flo11
 "YIR019C" %in% G.genes ## YES for Flo11
 "YIR019C" %in% E.genes ## NO for Flo11.
 "YIR019C" %in% GxE.genes ## YES for Flo11.
