@@ -4,13 +4,13 @@
 parse_S288c_headers.py by Rohan Maddamsetti.
 
 This script parses the headers for the S288c reference transcriptome in
-data/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.
+data/Saccharomyces_cerevisiae.R64-1-1.cdna.all_AND_FLO8.fa .
 
 print out a "csv" file, using the pipe character '|' as the separator
 character. This is because the description field has commas and other
 punctuation.
 
-Usage: python parse_S288c_header.py > ../results/transcript_annotation.csv
+Usage: python parse_S288c_headers.py > ../results/transcript_annotation.csv
 
 '''
 
@@ -18,7 +18,7 @@ import re
 
 def main():
 
-    f = "../data/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa"
+    f = "../data/Saccharomyces_cerevisiae.R64-1-1.cdna.all_AND_FLO8.fa"
 
     regex = re.compile("^\>([\w-]+) cdna chromosome:R64-1-1:([\w:-]+) gene:([\w-]+) gene_biotype:(\w+) transcript_biotype:(\w+) (.*)description:(.+)$")
     

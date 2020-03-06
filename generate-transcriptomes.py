@@ -228,13 +228,15 @@ def main():
     assert projdir.endswith('yeast-RNAseq')
 
     datadir = join(projdir,"data")
-    S288c_transcriptome_f = join(datadir,"Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa")
+    ## I manually added FLO8 (YER109C) to the reference transcriptome
+    ## (FLO8 is a pseudogene in S288c).
+    S288c_transcriptome_f = join(datadir,"Saccharomyces_cerevisiae.R64-1-1.cdna.all_AND_FLO8.fa")
     HMY12_fasta_f = join(datadir,"HMY12.fasta")
     HMY127_fasta_f = join(datadir,"HMY127.fasta")
     HMY362_fasta_f = join(datadir,"HMY362.fasta")
 
-    outdir = join(projdir,"results","transcriptomes")
-    
+    outdir = join(projdir,"results", "transcriptomes")
+
     create_transcriptome(HMY12_fasta_f, S288c_transcriptome_f, outdir,"HMY12")
     create_transcriptome(HMY127_fasta_f, S288c_transcriptome_f, outdir,"HMY127")
     create_transcriptome(HMY362_fasta_f, S288c_transcriptome_f, outdir,"HMY362")
