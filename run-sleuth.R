@@ -4,9 +4,9 @@
 
 library(tidyverse)
 library(sleuth)
+library(cowplot)
 library(RColorBrewer)
 library(VennDiagram)
-library(cowplot)
 library(ggrepel)
 
 ## q-value threshold as a global value:
@@ -190,7 +190,6 @@ HMY362.genes <- annotated.HMY362.test.results$gene
 ## find genes that are DE in all three strains.
 gene.intrsctn <- Reduce(intersect,list(HMY12.genes,HMY127.genes,HMY362.genes))
 
-
 dice.similarity(HMY12.genes,HMY127.genes)
 jaccard.index(HMY12.genes,HMY127.genes)
 
@@ -233,26 +232,26 @@ Fig2C <- venn.diagram(x=list(HMY12.genes, HMY127.genes, HMY362.genes),
                                                ,'(',length(HMY127.genes),')'),
                                          paste0("HMY362 ",
                                                 '(',length(HMY362.genes),')')),
-                     filename = NULL,
-                     output = TRUE ,
-                     imagetype="svg" ,
-                     height = 480 , 
-                     width = 480 , 
-                     resolution = 300,
-                     compression = "lzw",
-                     lwd = 1,
-                     col=c("blue", 'purple', 'red'),
-                     fill = c(alpha("blue",0.3), alpha('purple',0.3), alpha('red',0.3)),
-                     cex=2,
-                     fontfamily = "sans",
-                     cat.cex=1.5,
-                     cat.default.pos = "outer",
-                     cat.pos = c(-27, 27, 135),
-                     cat.dist = c(0.055, 0.055, 0.085),
-                     cat.fontfamily = "sans",
-                     cat.col = c("blue", 'purple', 'red'),
-                     rotation = 1
-                     )
+                      filename = NULL,
+                      output = TRUE ,
+                      imagetype="svg" ,
+                      height = 480 , 
+                      width = 480 , 
+                      resolution = 300,
+                      compression = "lzw",
+                      lwd = 1,
+                      col=c("blue", 'purple', 'red'),
+                      fill = c(alpha("blue",0.3), alpha('purple',0.3), alpha('red',0.3)),
+                      cex=2,
+                      fontfamily = "sans",
+                      cat.cex=1.5,
+                      cat.default.pos = "outer",
+                      cat.pos = c(-27, 27, 135),
+                      cat.dist = c(0.055, 0.055, 0.085),
+                      cat.fontfamily = "sans",
+                      cat.col = c("blue", 'purple', 'red'),
+                      rotation = 1
+                      )
 
 ## Put panels AB and C together using Illustrator.
 ggsave(Fig2C,file=file.path(proj.dir,"results","figures","Fig2C.pdf"))
@@ -274,9 +273,9 @@ HMY362.rank.vec <- match(HMY362.vec, gene.intrsctn)
 ## although HMY127 and HMY362 signal is weaker (but still highly significant).
 ## z = 14.9, p < 10^-15.
 cor.test(HMY12.rank.vec, HMY127.rank.vec, method="kendall")
-## z = 17.9, p < 10^-15.
+## z = 17.7, p < 10^-15.
 cor.test(HMY12.rank.vec, HMY362.rank.vec, method="kendall")
-## z = 4.7, p < 10^-5.
+## z = 5.3, p < 10^-7.
 cor.test(HMY127.rank.vec, HMY362.rank.vec, method="kendall")
 
 
